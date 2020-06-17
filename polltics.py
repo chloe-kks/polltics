@@ -85,7 +85,7 @@ def nosto_filter(word):
 
 
 for s in sourcs:
-    f = open('{}_data.csv'.format(s),'r')
+    f = open('./dataset/{}_data.csv'.format(s),'r')
     rdr = csv.reader(f)
 
     sent_tagged_pairs = sentencePreprocess(rdr)
@@ -96,7 +96,7 @@ for s in sourcs:
 
     print(len(filtered_pairs))
 
-    f = open('{}_data_filtered.csv'.format(s), 'w', newline='')
+    f = open('./dataset/{}_data_filtered.csv'.format(s), 'w', newline='')
     wr = csv.writer(f)
     for (sent, tagged_sent, news, url, date) in filtered_pairs:
         wr.writerow([sent, news, url, date])
@@ -203,14 +203,14 @@ sentences = []
 sample_sentences = []
 
 for s in sources:
-    with open('{}_data_filtered.csv'.format(s)) as csvfile:
+    with open('./dataset/{}_data_filtered.csv'.format(s)) as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
         for line in readCSV:
             if not line: break
             l = line[0]
             sentences.append((l, -1))
             
-with open('annotated.csv') as csvfile:
+with open('./dataset/annotated.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     for line in readCSV:
         if not line: break
