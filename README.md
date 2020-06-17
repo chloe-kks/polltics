@@ -3,5 +3,5 @@
 
 ### Running
 ```
-python poll_tics.py
+python Poll_tics.py
 ```
